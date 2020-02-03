@@ -7,7 +7,7 @@ import {
 import { reducer } from './reducer';
 import { useEffect, useReducer } from "react";
 
-export const useGet = (url: string) => {
+export const useGet = (url: string, toggle: number) => {
     const [state, dispatch] = useReducer(reducer, {
         isLoading: true,
         data: null,
@@ -49,7 +49,7 @@ export const useGet = (url: string) => {
         return () => {
             abortController.abort();
         };
-    }, [url]);
+    }, [url, toggle]);
 
     return state;
 };

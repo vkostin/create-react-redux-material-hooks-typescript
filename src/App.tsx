@@ -62,9 +62,10 @@ function App() {
     const classes = useStyles();
     // const [mobileOpen, setMobileOpen] = React.useState(false);
     // const todoList = useSelector((state: RootState) => state.todoList);
-    const isMobile = useMediaQuery((theme: Theme) =>
-        theme.breakpoints.down("sm")
-    );
+    const isMobile = false;
+    // useMediaQuery((theme: Theme) =>
+    //     theme.breakpoints.down("sm")
+    // );
 
     // const handleDrawerToggle = () => {
     //     setMobileOpen(!mobileOpen);
@@ -159,16 +160,16 @@ const useStyles = makeStyles((theme: Theme) => ({
             display: "none",
         },
     },
-    drawerHeader: theme.mixins.toolbar,
-    drawerPaper: {
-        width: 64,
-        backgroundColor: theme.palette.background.default,
-        [theme.breakpoints.up("md")]: {
-            width: drawerWidth,
-            position: "relative",
-            height: "100%",
-        },
-    },
+    // drawerHeader: theme.mixins.toolbar,
+    // drawerPaper: {
+    //     width: 64,
+    //     backgroundColor: theme.palette.background.default,
+    //     [theme.breakpoints.up("md")]: {
+    //         width: drawerWidth,
+    //         position: "relative",
+    //         height: "100%",
+    //     },
+    // },
     content: {
         backgroundColor: theme.palette.background.default,
         width: "100%",

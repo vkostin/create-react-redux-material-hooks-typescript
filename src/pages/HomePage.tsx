@@ -1,25 +1,31 @@
-import { Card, CardContent, Divider, Grid, List, ListItem, Typography} from "@material-ui/core";
+import {Card, CardContent, Divider, Grid, List, ListItem, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import * as React from "react";
 import {useGet} from "../hooks/useGet";
+import {useState} from "react";
+import Button from "@material-ui/core/Button";
 
 export const HomePage = () => {
     const classes = useStyles();
     const url = "http://fathomless-wave-08869.herokuapp.com/posts"; //compileFooUrl({ fooId: this.props.fooId });
 
-    const {isLoading, data, error} = useGet(url);
+    const [loadToggle, setToggle] = useState(-1);
+
+    const {isLoading, data, error} = useGet(url, loadToggle);
 
     return (
         <div className={classes.root}>
             <Card>
                 <CardContent>
+                    <Button onClick={() => {
+                        setToggle(() => (-loadToggle));
+                    }}>Load</Button>
                     <Typography>Getting data from some abstract api</Typography>
                     {isLoading && <Typography>Loading</Typography>}
                     {error && <Typography>Error</Typography>}
                     {error && <Typography variant="body2">{error}</Typography>}
                     <List>
-
-                        {data && data.map((x:any, idx:number) =>
+                        {data && data.map((x: any, idx: number) =>
                             <ListItem key={idx}>
                                 <Grid container>
                                     <Grid item>
